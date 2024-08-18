@@ -11,11 +11,6 @@ public class OutsideSpaceController : MonoBehaviour
     public float forwardSpeed;
     public float sideSpeed;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
