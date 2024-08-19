@@ -19,11 +19,10 @@ public class OutsideSpaceController : MonoBehaviour
     {
         float forwardVelocity = forwardSpeed * (lever.value ? 1 : 0);
         float horizontalVelocity = horizontalSpeed * (lever.value ? 1 : 0) * Mathf.Lerp(-1, 1, knob.value);
-        float verticalPosition = verticalSpeed * (lever.value ? 1 : 0) * Mathf.Lerp(-1, 1, slider.value);
+        float verticalVelocity = verticalSpeed * (lever.value ? 1 : 0) * Mathf.Lerp(-1, 1, slider.value);
 
-        Vector3 velocity = new Vector3(horizontalVelocity, 0, forwardVelocity);
+        Vector3 velocity = new Vector3(horizontalVelocity, verticalVelocity, forwardVelocity);
 
-        transform.position.Set(transform.position.x, verticalPosition, transform.position.z);
         transform.position += velocity * Time.deltaTime;
     }
 }
