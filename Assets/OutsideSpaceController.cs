@@ -13,6 +13,7 @@ public class OutsideSpaceController : MonoBehaviour
     public float horizontalSpeed;
     public float verticalSpeed;
 
+    private bool previousLeverValue;
 
     // Update is called once per framed
     void Update()
@@ -24,5 +25,19 @@ public class OutsideSpaceController : MonoBehaviour
         Vector3 velocity = new Vector3(horizontalVelocity, verticalVelocity, forwardVelocity);
 
         transform.position += velocity * Time.deltaTime;
+
+        if (lever.value != previousLeverValue)
+        {
+            if (lever.value)
+            {
+                AudioManager.instance.Play("Engine");
+            }
+            else
+            {
+                AudioManager.instance.Stop("Engine");
+            }
+        }
+
+        previousLeverValue = lever.value;
     }
 }
